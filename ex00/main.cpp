@@ -16,12 +16,12 @@
 
 int	main(void)
 {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	Animal* meta = new Animal();
+	Animal* j = new Dog();
+	Animal* i = new Cat();
 
+	std::cout << i->getType() << " " << std::endl;
 	std::cout << j->getType() << " " << std::endl;
-	std::cout << y->getType() << " " << std::endl;
 	i->makeSound();
 	j->makeSound();
 	meta->makeSound();

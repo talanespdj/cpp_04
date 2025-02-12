@@ -27,8 +27,8 @@ class	Animal {
 
 		void	makeSound();
 
-		std::string const	getType();
-		void	setType();
+		std::string	getType();
+		// void	setType();
 };
 
 #endif

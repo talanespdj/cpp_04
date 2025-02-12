@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "Animal.hpp"
 
-Animal::Animal() : type("undefined"{
+Animal::Animal() : type("undefined") {
 	std::cout << "Animal Default constructor called" << std::endl;
 };
 
@@ -26,7 +26,7 @@ Animal::Animal(const Animal &a) {
 
 Animal&	Animal::operator=(const Animal& a) {
         std::cout << "A copy assignment Animal appeared" << std::endl;
-        *this = c;
+        *this = a;
 }
 
 void	Animal::makeSound() {
