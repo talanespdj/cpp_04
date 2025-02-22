@@ -21,14 +21,14 @@ class	Animal {
 		
 	public :
 		Animal();
-		~Animal();
+		virtual ~Animal();
 		Animal(const Animal& a);
 		Animal& operator=(const Animal& a);
 
 		void	makeSound();
 
 		std::string	getType();
-		// void	setType();
+		void		setType(std::string data);
 };
 
 #endif

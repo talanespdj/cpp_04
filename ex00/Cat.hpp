@@ -5,25 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tespandj <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/12 00:55:53 by tespandj          #+#    #+#             */
-/*   Updated: 2025/02/12 02:05:48 by tespandj         ###   ########.fr       */
+/*   Created: 2025/02/22 20:46:06 by tespandj          #+#    #+#             */
+/*   Updated: 2025/02/22 21:04:57 by tespandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef CAT_HPP
 # define CAT_HPP
 
-#include <iostream>
-#include "Animal.hpp"
+# include "Animal.hpp"
 
-class	Cat : public Animal {
-	
-	public :
+class	Cat : virtual public Animal {
+	private:
+		std::string	type;
+
+	public:
 		Cat();
-		~Cat();
-		Cat(const Cat& d);
-		Cat& operator=(const Cat& d);
-
+		virtual ~Cat();
+		Cat(const Cat& c);
+		Cat& operator=(const Cat& c);
 		void	makeSound();
+
+		std::string	getType();
+		void		setType(std::string data);	
 };
 
 #endif
+

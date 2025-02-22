@@ -6,37 +6,39 @@
 /*   By: tespandj <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 02:06:29 by tespandj          #+#    #+#             */
-/*   Updated: 2025/02/12 02:26:10 by tespandj         ###   ########.fr       */
+/*   Updated: 2025/02/22 21:02:51 by tespandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "Animal.hpp"
 
 Animal::Animal() : type("undefined") {
-	std::cout << "Animal Default constructor called" << std::endl;
+	std::cout << "Animal Default constructor called." << std::endl;
 };
 
 Animal::~Animal() {
-	std::cout << "Animal Default deconstructor called" << std::endl;
+	std::cout << "Animal Default deconstructor called." << std::endl;
 };
 
 Animal::Animal(const Animal &a) {
-        this->type = a.type;
-        std::cout << "A copy Animal just appeared" << std::endl;
-}
-
-Animal&	Animal::operator=(const Animal& a) {
-        std::cout << "A copy assignment Animal appeared" << std::endl;
+        std::cout << "An Animal copy just appeared." << std::endl;
         *this = a;
 }
 
+Animal&	Animal::operator=(const Animal& a) {
+	std::cout << "An Animal copy assignment appeared." << std::endl;
+	if (this != &a)
+		this->type = a.type;
+	return (*this);
+}
+
 void	Animal::makeSound() {
-	std::cout << "Who am I to make a sound pls think" << std::endl;
+	std::cout << "Im making a sound but idk who i am." << std::endl;
 }
 
 void	Animal::setType(std::string data) {
 	this->type = data;
 }
 
-const std::string	Animal::getType() {
+std::string	Animal::getType() {
 	return (this->type);
 }

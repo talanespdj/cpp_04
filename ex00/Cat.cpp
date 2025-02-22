@@ -5,31 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tespandj <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/12 01:03:57 by tespandj          #+#    #+#             */
-/*   Updated: 2025/02/12 02:22:10 by tespandj         ###   ########.fr       */
+/*   Created: 2025/02/22 20:42:19 by tespandj          #+#    #+#             */
+/*   Updated: 2025/02/22 20:51:55 by tespandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "Cat.hpp"
 #include <iostream>
+#include "Cat.hpp"
 
 Cat::Cat() : type("Cat") {
-	std::cout << "A Cat just appeared" << std::endl;
+	std::cout << "A cat just appeared." << std::endl;
 }
 
 Cat::~Cat() {
-	std::cout << "cat - I leave this evil world" << std::endl;
-}
-
-Cat::Cat(const Cat &c) {
-	this->type = c.type;
-	std::cout << "A copy Cat just appeared" << std::endl;
-}
-
-Cat&	Cat::operator=(const Cat& c) {
-	std::cout << "A copy assignment Cat appeared" << std::endl;
-	*this = c;
+	std::cout << "A cat left home." << std::endl;
 }
 
 void	Cat::makeSound() {
-	std::cout << "Miaaouuuu" << std::endl;
+	std::cout << "Miaaaou miaaaaouuu" << std::endl;
 }
