@@ -7,19 +7,23 @@ SRCS = main.cpp \
 	Cat.cpp \
        	Animal.cpp \
 
-OBJS = $(SRCS:.cpp=.o) 
+HIDDEN = .hidden
+OBJS = $(SRCS:%.cpp=$(HIDDEN)/%.o)
 
-.cpp.o:
+$(HIDDEN)/%.o: %.cpp
+	@mkdir -p $(dir $@)
 	@$(CC) $(FLAGS) -c -o $@ $< 
 
 all: $(NAME)
         
 $(NAME): $(OBJS)
 	@$(CC) $(FLAGS) -o $(NAME) $(OBJS)
-	@echo "\033[1mPolymorphisme built\033[0m"
+	@echo "\033[1mPolymorphism built\033[0m"
 
 clean:
 	@rm -rf $(OBJS)
+	@rm -rf $(HIDDEN)
+	@rm -rf .vscode
 	@echo "c'est clean"
 
 fclean: clean

@@ -27,7 +27,7 @@ class	Dog : virtual public Animal {
 		void	makeSound();
 
 		std::string	getType();
-		void		setType(std::string data);	
+		// void		setType(std::string data);	
 };
 
 #endif

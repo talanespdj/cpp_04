@@ -23,10 +23,11 @@ class	Cat : virtual public Animal {
 		virtual ~Cat();
 		Cat(const Cat& c);
 		Cat& operator=(const Cat& c);
+
 		void	makeSound();
 
 		std::string	getType();
-		void		setType(std::string data);	
+		// void		setType(std::string data);	
 };
 
 #endif

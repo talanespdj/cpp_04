@@ -20,6 +20,22 @@ Dog::~Dog() {
 	std::cout << "A dog left home." << std::endl;
 }
 
+Dog::Dog(const Dog& d) {
+	std::cout << "Dog Copy constructor called" << std::endl;
+	*this = d;
+}
+
+Dog&	Dog::operator=(const Dog& d) {
+	std::cout << "Dog Copy assignment operator called" << std::endl;
+	if (this != &d)
+		return (*this);
+	return (*this);
+}
+
 void	Dog::makeSound() {
 	std::cout << "Wouf wouf" << std::endl;
+}
+
+std::string	Dog::getType() {
+	return (this->type);
 }

@@ -20,6 +20,22 @@ Cat::~Cat() {
 	std::cout << "A cat left home." << std::endl;
 }
 
+Cat::Cat(const Cat& c) {
+	std::cout << "Cat Copy constructor called" << std::endl;
+	*this = c;
+}
+
+Cat&	Cat::operator=(const Cat& c) {
+	std::cout << "Cat Copy assignment operator called" << std::endl;
+	if (this != &c)
+		return (*this);
+	return (*this);
+}
+
 void	Cat::makeSound() {
 	std::cout << "Miaaaou miaaaaouuu" << std::endl;
+}
+
+std::string	Cat::getType() {
+	return (this->type);
 }
