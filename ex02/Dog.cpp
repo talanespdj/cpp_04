@@ -35,9 +35,9 @@ Dog&	Dog::operator=(const Dog& d) {
 	return (*this);
 }
 
-// void	Dog::makeSound() {
-// 	std::cout << "Wouf wouf" << std::endl;
-// }
+void	Dog::makeSound() const {
+	std::cout << "Wouf wouf" << std::endl;
+}
 
 std::string	Dog::getType() {
 	return (this->type);

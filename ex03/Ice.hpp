@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tespandj <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/22 20:43:02 by tespandj          #+#    #+#             */
-/*   Updated: 2025/02/22 21:05:17 by tespandj         ###   ########.fr       */
+/*   Created: 2025/02/24 19:37:06 by tespandj          #+#    #+#             */
+/*   Updated: 2025/02/24 19:46:22 by tespandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef ICE_HPP
+# define ICE_HPP
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+# include "AMateria.hpp"
 
-class	Dog : public Animal {
-	private:
-		std::string	type;
-		Brain		*br;
+class	Ice : public AMateria {
+	protected:
+
+
 
 	public:
-		Dog();
-		virtual ~Dog(); 
-		Dog(const Dog& d);
-		Dog& operator=(const Dog& d);
+		Ice();
+		~Ice();
+		Ice(const Ice &i);
+		Ice&	operator=(const Ice &i);
 
-		void	makeSound() const;
-
-		std::string	getType();
-		// void		setType(std::string data);	
 };
 
 #endif

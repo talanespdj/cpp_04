@@ -24,13 +24,9 @@ int	main(void) {
 		else
 			tab[x] = new Cat();
 	}
-
 	for (int x = 0; x < n; ++x) {
 		delete (tab[x]);
 	}
-	
-	// delete [] *tab;
-
 	return (0);
 
 }

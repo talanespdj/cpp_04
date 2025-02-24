@@ -1,13 +1,11 @@
-NAME = a.out
+NAME = Interface&Recap
 CC = c++
 FLAGS = -Wall -Werror -Wextra -std=c++98 -g3 
 
 SRCS = main.cpp \
-	Dog.cpp \
-	Cat.cpp \
-       	Animal.cpp \
-	WrongCat.cpp \
-	WrongAnimal.cpp \
+       	AMateria.cpp \
+	Character.cpp \
+	MateriaSource.cpp \
 
 HIDDEN = .hidden
 OBJS = $(SRCS:%.cpp=$(HIDDEN)/%.o)
@@ -20,7 +18,7 @@ all: $(NAME)
         
 $(NAME): $(OBJS)
 	@$(CC) $(FLAGS) -o $(NAME) $(OBJS)
-	@echo "\033[1mPolymorphism built\033[0m"
+	@echo "\033[1mInterface&Recap built\033[0m"
 
 clean:
 	@rm -rf $(OBJS)

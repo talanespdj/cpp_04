@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tespandj <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/24 19:16:48 by tespandj          #+#    #+#             */
-/*   Updated: 2025/02/24 19:17:20 by tespandj         ###   ########.fr       */
+/*   Created: 2025/02/24 17:31:47 by tespandj          #+#    #+#             */
+/*   Updated: 2025/02/24 17:31:56 by tespandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "AMateria.hpp"
-#include "Character.hpp"
 #include <iostream>
 
-int	main(void)
-{
-	IMateriaSource* src = new MateriaSource();
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
+AMateria::AMateria() {
+	std::cout << "Amateria available" << std::endl;
+}
+AMateria::~AMateria() {
+	std::cout << "An Amateria has disappeared" << std::endl;
+}
+AMateria(AMateria const &a) {
 
-	ICharacter* me = new Character("me");
-	AMateria* tmp;
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	moe->equip(tmp);
+}
 
-	ICharacter* bob = new Character("bob");
+AMateria operator=(AMateria const &a) {
 
-	me->use(0, *bob)	me->use(1, *bob);
-	delete bob;
-	delete me;
-	delete src;
+}
+
+AMateria(std::string const & type) {
+	
 }

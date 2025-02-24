@@ -5,19 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tespandj <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/22 23:12:37 by tespandj          #+#    #+#             */
-/*   Updated: 2025/02/22 23:13:48 by tespandj         ###   ########.fr       */
+/*   Created: 2025/02/24 18:25:17 by tespandj          #+#    #+#             */
+/*   Updated: 2025/02/24 18:26:02 by tespandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef CHARACTER_HPP
 # define CHARACTER_HPP
 
-class	ICharacter
-{
+# include "ICharacter.hpp"
+# include <iostream>
+
+class	Character : public ICharacter {
+	private:
+		std::string	name;
+	
 	public:
-		virtual ~ICharacter() {}
-		virtual std::string const & getName() const = 0;
-		virtual void equip(AMateria* m) = 0;
-		virtual void unequip(int idx) = 0;
-		virtual void use(int idx, ICharacter& target) = 0;
+		Character();
+		Character(std::string name);
+		virtual ~Character();
+		Character(Character const &a);
+		Character operator=(Character const &a);
+		Character(std::string const & type);
+
+		virtual std::string const & getName();
+		virtual void equip(AMateria* m);
+		virtual void unequip(int idx);
+		virtual void use(int idx, ICharacter& target);
 };
+
+
+#endif

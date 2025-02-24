@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tespandj <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/22 20:43:02 by tespandj          #+#    #+#             */
-/*   Updated: 2025/02/22 21:05:17 by tespandj         ###   ########.fr       */
+/*   Created: 2025/02/12 00:52:09 by tespandj          #+#    #+#             */
+/*   Updated: 2025/02/12 02:26:29 by tespandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+#include <iostream>
 
-class	Dog : public Animal {
-	private:
+class	WrongAnimal {
+
+	protected :
 		std::string	type;
-		Brain		*br;
+		
+	public :
+		WrongAnimal();
+		virtual ~WrongAnimal();
+		WrongAnimal(const WrongAnimal& a);
+		WrongAnimal& operator=(const WrongAnimal& a);
 
-	public:
-		Dog();
-		virtual ~Dog(); 
-		Dog(const Dog& d);
-		Dog& operator=(const Dog& d);
+		void	makeSound();
 
-		void	makeSound() const;
-
-		std::string	getType();
-		// void		setType(std::string data);	
+		virtual std::string	getType();
+		void		setType(std::string data);
 };
 
 #endif

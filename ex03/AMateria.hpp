@@ -10,15 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef AMATERIA_HPP
-# define AMATERI_HPP
+# define AMATERIA_HPP
+
+# include <iostream>
 
 class	AMateria {
 	protected:
-		[...]
+		// std::string		name;
+		std::string const	type;
 
 	public:
+
+		AMateria();
+		~AMateria();
+		AMateria(AMateria const &a);
+		AMateria operator=(AMateria const &a);
 		AMateria(std::string const & type);
-		[...]
 
 		std::string const & getType() const; //Returns the materia type
  
@@ -26,3 +33,4 @@ class	AMateria {
 		virtual void use(ICharacter& target);
 };
 
+#endif
