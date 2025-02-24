@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 #include <iostream>
 #include "Cat.hpp"
+#include "Brain.hpp"
 
 Cat::Cat() : type("Cat") {
 	std::cout << "A cat just appeared." << std::endl;
@@ -19,6 +20,7 @@ Cat::Cat() : type("Cat") {
 
 Cat::~Cat() {
 	std::cout << "A cat left home." << std::endl;
+	delete (br);
 }
 
 Cat::Cat(const Cat& c) {

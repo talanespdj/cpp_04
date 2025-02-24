@@ -20,9 +20,9 @@ int	main(void) {
 
 	for (int x = 0; x < n; ++x) {
 		if (x < n/2)
-			tab[x] = new Dog;
+			tab[x] = new Dog();
 		else
-			tab[x] = new Cat;
+			tab[x] = new Cat();
 	}
 
 	for (int x = 0; x < n; ++x) {
