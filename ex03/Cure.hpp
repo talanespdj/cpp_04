@@ -13,21 +13,20 @@
 # define CURE_HPP
 
 # include "AMateria.hpp"
+# include "ICharacter.hpp"
 
 class	Cure : public AMateria {
 	protected:
-
-
 
 	public:
 		Cure();
 		~Cure();
 		Cure(const Cure &i);
-		Cure&	operator=(const Cure &i);
+		// Cure&	operator=(const Cure &i);
 
 		void	use(ICharacter& target);
+		AMateria*	clone() const;
 
 };
-
 
 #endif

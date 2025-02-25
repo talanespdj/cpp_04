@@ -13,38 +13,33 @@
 #include "ICharacter.hpp"
 #include <iostream>
 
+AMateria::AMateria() {
+	std::cout << "Amateria available without any type" << std::endl;
+}
+
 AMateria::AMateria(std::string const data) : type(data) {
-	// std::cout << "Amateria available" << std::endl;
+	std::cout << "Amateria available" << std::endl;
 }
 
 AMateria::~AMateria() {
-	// std::cout << "An Amateria has disappeared" << std::endl;
+	std::cout << "An Amateria has disappeared" << std::endl;
 }
 
-
-AMateria::AMateria(AMateria const &a) {
-	this->type = a.type;
-
+AMateria::AMateria(AMateria const &a) : type(a.type) {
+	*this = a;
 }
 
 AMateria& AMateria::operator=(const AMateria &a) {
-	if (this != &a) {
-		type = a.type;
-	}
+	if (this != &a)
+		const_cast<std::string&>(type) = a.type;
 	return (*this);
-
 }
+
+
 
 std::string const & AMateria::getType() const {
 	return (this->type);
 }
-
-// virtual	AMateria* Amateria::clone() {
-// 	Amateria	*clone;
-
-// 	clone = this;
-// 	return (clone);
-// }
 
 void	AMateria::use(ICharacter& target) {
 	std::cout << "Attacking " << target.getName() << " with something" << std::endl;

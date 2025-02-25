@@ -9,8 +9,9 @@
 /*   Updated: 2025/02/24 19:50:07 by tespandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <iostream>
 #include "Cure.hpp"
-#include "iostream"
+#include "AMateria.hpp"
 
 Cure::Cure() : AMateria("cure") {
 	std::cout << "One Materia cure appeared" << std::endl;
@@ -35,4 +36,8 @@ Cure::Cure(const Cure &i) : AMateria(i.type) {
 
 void	Cure::use(ICharacter& target) {
 	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+}
+
+AMateria*	Cure::clone() const {
+	return (new Cure());
 }

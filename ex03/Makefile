@@ -1,8 +1,10 @@
-NAME = Interface&Recap
+NAME = interfaceRecap
 CC = c++
 FLAGS = -Wall -Werror -Wextra -std=c++98 -g3 
 
 SRCS = main.cpp \
+	Ice.cpp \
+	Cure.cpp \
        	AMateria.cpp \
 	Character.cpp \
 	MateriaSource.cpp \

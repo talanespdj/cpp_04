@@ -9,8 +9,9 @@
 /*   Updated: 2025/02/24 19:49:35 by tespandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <iostream>
 #include "Ice.hpp"
-#include "iostream"
+#include "AMateria.hpp"
 
 Ice::Ice() : AMateria("ice") {
 	std::cout << "One Materia ice appeared" << std::endl;
@@ -36,4 +37,8 @@ Ice::Ice(const Ice &i): AMateria(i.type) {
 
 void	Ice::use(ICharacter& target) {
 	std::cout << "* shoots an ice bolt at " << target.getName() << " *"<< std::endl;
+}
+
+AMateria*	Ice::clone() const {
+	return (new Ice());
 }

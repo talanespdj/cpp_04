@@ -36,10 +36,43 @@ Character&	Character::operator=(const Character &i) {
 	std::cout << "Character Copy assignment operator called" << std::endl;
 	if (this != &i) {
 		this->name = i.name;
+		for (int x = 0; x < 4; ++x) {
+			if (this->inventory[x])
+				delete (this->inventory[x]);
+			if (i.inventory[x])
+				this->inventory[x] = i.inventory[x]->clone();
+			else
+				this->inventory[x] = NULL;
+		}
 	}
 	return (*this);
 }
 
-std::string const & Character::getName() {
+std::string const & Character::getName() const {
 	return (this->name);
+}
+
+void	Character::equip(AMateria* m) {
+	for (int x = 0; x < 4; ++x) {
+		if (!this->inventory[x]) {
+			this->inventory[x] = m;
+			return ;
+		}
+	}
+	std::cout << "Couldn't equip " << m->getType() << ", the inventory is full" << std::endl;
+}
+
+void	Character::unequip(int idx) {
+	if (this->inventory[idx]) {
+		this->inventory[idx] = NULL;
+		return ;
+	}
+	std::cout << "There is no Materia at " << idx << " index" << std::endl;
+}
+
+void	Character::use(int idx, ICharacter& target) {
+	if (!this->inventory[idx])
+		std::cout << "There is no Materia at " << idx << " index" << std::endl;
+	else
+		this->inventory[idx]->use(target);
 }

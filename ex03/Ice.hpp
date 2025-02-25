@@ -18,16 +18,14 @@
 class	Ice : public AMateria {
 	protected:
 
-
-
 	public:
 		Ice();
 		~Ice();
 		Ice(const Ice &i);
-		Ice&	operator=(const Ice &i);
-
+		// Ice&	operator=(const Ice &i);
 
 		void	use(ICharacter& target);
+		AMateria*	clone() const;
 
 };
 

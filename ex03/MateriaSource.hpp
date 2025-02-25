@@ -24,13 +24,13 @@ class	MateriaSource : public IMateriaSource {
 	public:
 		MateriaSource();
 		~MateriaSource();
-		MateriaSource(const MateriaSource& ms);
-		MateriaSource& operator=(const MateriaSource& ms);
+		// MateriaSource(const MateriaSource& ms);
+		// MateriaSource& operator=(const MateriaSource& ms);
 
 
 		/// @INTERFACE:
-		void learnMateria(AMateria*);
-		AMateria* createMateria(std::string const & type);
+		void	learnMateria(AMateria* data);
+		AMateria*	createMateria(std::string const & type);
 
 
 };

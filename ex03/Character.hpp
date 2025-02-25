@@ -27,13 +27,13 @@ class	Character : public ICharacter {
 		virtual ~Character();
 		Character(const Character &a);
 		Character& operator=(const Character &a);
-		Character(std::string const & type);
+		// Character(std::string const & type); ??
 
 		/// @INTERFACE:
-		std::string const & getName();
-		virtual void equip(AMateria* m);
-		virtual void unequip(int idx);
-		virtual void use(int idx, ICharacter& target);
+		std::string const & getName() const;
+		void	equip(AMateria* m);
+		void	unequip(int idx);
+		void	use(int idx, ICharacter& target);
 };
 
 
