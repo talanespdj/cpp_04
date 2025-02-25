@@ -12,15 +12,20 @@
 #include "Character.hpp"
 #include "ICharacter.hpp"
 
+Character::Character() {
+	std::cout << "A new unknown Character has entered" << std::endl;
+}
+
 Character::Character(std::string name) {
-	std::cout << "A new Character has entered" << std::endl;
 	this->name = name;
+	std::cout << "A new Character " << getName() << " has entered" << std::endl;
 }
 
 Character::~Character() {
+	for (int x = 0; x < 4; ++x)
+		delete (this->inventory[x]);
 	std::cout << "A Character has left" << std::endl;
 }
-
 
 Character::Character(const Character &i) {
 	std::cout << "Character Copy constructor called" << std::endl;

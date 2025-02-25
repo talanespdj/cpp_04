@@ -1,0 +1,47 @@
+In file included from main.cpp:12:
+In file included from ./Ice.hpp:15:
+In file included from ./AMateria.hpp:16:
+./ICharacter.hpp:22:22: error: unknown type name 'AMateria'
+                virtual void equip(AMateria* m) = 0;
+                                   ^
+In file included from main.cpp:15:
+./Character.hpp:33:23: error: 'Character::getName' hides overloaded virtual function [-Werror,-Woverloaded-virtual]
+                std::string const & getName();
+                                    ^
+./ICharacter.hpp:21:31: note: hidden overloaded virtual function 'ICharacter::getName' declared here: different qualifiers ('const' vs unqualified)
+                virtual std::string const & getName() const = 0;
+                                            ^
+In file included from main.cpp:15:
+./Character.hpp:34:16: error: 'Character::equip' hides overloaded virtual function [-Werror,-Woverloaded-virtual]
+                virtual void equip(AMateria* m);
+                             ^
+./ICharacter.hpp:22:16: note: hidden overloaded virtual function 'ICharacter::equip' declared here: type mismatch at 1st parameter ('int *' vs 'AMateria *')
+                virtual void equip(AMateria* m) = 0;
+                             ^
+main.cpp:23:24: error: allocating an object of abstract class type 'Ice'
+        src->learnMateria(new Ice());
+                              ^
+./AMateria.hpp:33:21: note: unimplemented pure virtual method 'clone' in 'Ice'
+                virtual AMateria* clone() const = 0;
+                                  ^
+main.cpp:24:24: error: allocating an object of abstract class type 'Cure'
+        src->learnMateria(new Cure());
+                              ^
+./AMateria.hpp:33:21: note: unimplemented pure virtual method 'clone' in 'Cure'
+                virtual AMateria* clone() const = 0;
+                                  ^
+main.cpp:26:23: error: allocating an object of abstract class type 'Character'
+        ICharacter* me = new Character(me);
+                             ^
+./ICharacter.hpp:21:31: note: unimplemented pure virtual method 'getName' in 'Character'
+                virtual std::string const & getName() const = 0;
+                                            ^
+./ICharacter.hpp:22:16: note: unimplemented pure virtual method 'equip' in 'Character'
+                virtual void equip(AMateria* m) = 0;
+                             ^
+main.cpp:33:24: error: allocating an object of abstract class type 'Character'
+        ICharacter* bob = new Character(bob);
+                              ^
+7 errors generated.
+make: *** [Makefile:15: .hidden/main.o] Error 1
+

@@ -28,6 +28,11 @@ class	MateriaSource : public IMateriaSource {
 		MateriaSource& operator=(const MateriaSource& ms);
 
 
+		/// @INTERFACE:
+		void learnMateria(AMateria*);
+		AMateria* createMateria(std::string const & type);
+
+
 };
 
 #endif

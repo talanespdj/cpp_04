@@ -9,6 +9,8 @@
 /*   Updated: 2025/02/24 19:17:20 by tespandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "Ice.hpp"
+#include "Cure.hpp"
 #include "AMateria.hpp"
 #include "Character.hpp"
 #include "MateriaSource.hpp"

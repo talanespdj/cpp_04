@@ -29,7 +29,8 @@ class	Character : public ICharacter {
 		Character& operator=(const Character &a);
 		Character(std::string const & type);
 
-		virtual std::string const & getName();
+		/// @INTERFACE:
+		std::string const & getName();
 		virtual void equip(AMateria* m);
 		virtual void unequip(int idx);
 		virtual void use(int idx, ICharacter& target);
