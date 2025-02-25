@@ -34,3 +34,7 @@ Character&	Character::operator=(const Character &i) {
 	}
 	return (*this);
 }
+
+std::string const & Character::getName() {
+	return (this->name);
+}

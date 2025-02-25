@@ -13,18 +13,20 @@
 # define CHARACTER_HPP
 
 # include "ICharacter.hpp"
+# include "AMateria.hpp"
 # include <iostream>
 
 class	Character : public ICharacter {
 	private:
+		AMateria	*inventory[4];
 		std::string	name;
 	
 	public:
 		Character();
 		Character(std::string name);
 		virtual ~Character();
-		Character(Character const &a);
-		Character operator=(Character const &a);
+		Character(const Character &a);
+		Character& operator=(const Character &a);
 		Character(std::string const & type);
 
 		virtual std::string const & getName();

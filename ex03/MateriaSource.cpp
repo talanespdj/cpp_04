@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tespandj <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/22 23:12:37 by tespandj          #+#    #+#             */
-/*   Updated: 2025/02/24 18:25:06 by tespandj         ###   ########.fr       */
+/*   Created: 2025/02/25 00:18:14 by tespandj          #+#    #+#             */
+/*   Updated: 2025/02/25 00:23:51 by tespandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef ICHARACTER_HPP
-# define ICHARACTER_HPP
+#include "MateriaSource.hpp"
 
-# include "AMateria.hpp"
-# include <iostream>
+MateriaSource::MateriaSource()  {
+	std::cout << "A MateriaSource is up" << std::endl;
+}
 
-class	ICharacter {
-	public:
-		virtual ~ICharacter() {}
-		virtual std::string const & getName() const = 0;
-		virtual void equip(AMateria* m) = 0;
-		virtual void unequip(int idx) = 0;
-		virtual void use(int idx, ICharacter& target) = 0;
-};
+MateriaSource::~MateriaSource() {
+	std::cout << "A MateriaSource is down" << std::endl;
+}
 
-#endif
+MateriaSource(const MateriaSource& ms) {
+	if (this != &ms) {
+		this->type = ms.type;
+
+
+}
+	MateriaSource& operator=(const MateriaSource& ms);
+

@@ -13,6 +13,7 @@
 # define ICE_HPP
 
 # include "AMateria.hpp"
+# include "ICharacter.hpp"
 
 class	Ice : public AMateria {
 	protected:
@@ -24,6 +25,9 @@ class	Ice : public AMateria {
 		~Ice();
 		Ice(const Ice &i);
 		Ice&	operator=(const Ice &i);
+
+
+		void	use(ICharacter& target);
 
 };
 

@@ -20,6 +20,12 @@ class	Cure : public AMateria {
 
 
 	public:
+		Cure();
+		~Cure();
+		Cure(const Cure &i);
+		Cure&	operator=(const Cure &i);
+
+		void	use(ICharacter& target);
 
 };
 

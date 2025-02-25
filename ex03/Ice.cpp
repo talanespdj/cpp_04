@@ -31,3 +31,9 @@ Ice::Ice(const Ice &i): AMateria(i.type) {
 // 	}
 // 	return (*this);
 // }
+
+
+
+void	Ice::use(ICharacter& target) {
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *"<< std::endl;
+}

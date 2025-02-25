@@ -12,25 +12,27 @@
 #ifndef AMATERIA_HPP
 # define AMATERIA_HPP
 
+
+# include "ICharacter.hpp"
 # include <iostream>
 
 class	AMateria {
 	protected:
-		// std::string		name;
 		std::string const	type;
 
 	public:
 
 		AMateria();
-		~AMateria();
-		AMateria(AMateria const &a);
-		AMateria operator=(AMateria const &a);
-		AMateria(std::string const & type);
+		virtual ~AMateria();
+		AMateria(std::string const data);
+		AMateria(const AMateria  &a);
+		AMateria& operator=(const AMateria &a);
 
 		std::string const & getType() const; //Returns the materia type
  
 		virtual AMateria* clone() const = 0;
 		virtual void use(ICharacter& target);
+
 };
 
 #endif
