@@ -14,15 +14,15 @@
 #include <iostream>
 
 AMateria::AMateria() {
-	std::cout << "Amateria available without any type" << std::endl;
+	// std::cout << "Amateria available without any type" << std::endl;
 }
 
 AMateria::AMateria(std::string const data) : type(data) {
-	std::cout << "Amateria available" << std::endl;
+	// std::cout << "Amateria available" << std::endl;
 }
 
 AMateria::~AMateria() {
-	std::cout << "An Amateria has disappeared" << std::endl;
+	// std::cout << "An Amateria has disappeared" << std::endl;
 }
 
 AMateria::AMateria(AMateria const &a) : type(a.type) {

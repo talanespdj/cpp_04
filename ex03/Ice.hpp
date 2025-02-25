@@ -16,17 +16,19 @@
 # include "ICharacter.hpp"
 
 class	Ice : public AMateria {
-	protected:
+	private:
 
 	public:
 		Ice();
 		~Ice();
 		Ice(const Ice &i);
-		// Ice&	operator=(const Ice &i);
+		Ice&	operator=(const Ice &i);
 
 		void	use(ICharacter& target);
 		AMateria*	clone() const;
 
+
+		std::string	getType() const;
 };
 
 #endif

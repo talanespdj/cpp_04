@@ -14,15 +14,15 @@
 #include "AMateria.hpp"
 
 Ice::Ice() : AMateria("ice") {
-	std::cout << "One Materia ice appeared" << std::endl;
+	// std::cout << "One Materia ice appeared" << std::endl;
 }
 
 Ice::~Ice() {
-	std::cout << "One Materia ice has been used" << std::endl;
+	// std::cout << "One Materia ice has been used" << std::endl;
 }
 
 Ice::Ice(const Ice &i): AMateria(i.type) {
-	std::cout << "Ice Copy constructor called" << std::endl;
+	// std::cout << "Ice Copy constructor called" << std::endl;
 }
 
 // Ice&	Ice::operator=(const Ice &i) {
@@ -33,6 +33,9 @@ Ice::Ice(const Ice &i): AMateria(i.type) {
 // 	return (*this);
 // }
 
+std::string	Ice::getType() const {
+	return (this->type);
+}
 
 
 void	Ice::use(ICharacter& target) {

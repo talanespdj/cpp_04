@@ -13,32 +13,43 @@
 #include "ICharacter.hpp"
 
 Character::Character() {
-	std::cout << "A new unknown Character has entered" << std::endl;
+	// std::cout << "A new unknown Character has entered" << std::endl;
+	for (int x = 0; x < 4; ++x)
+		this->inventory[x] = NULL;
+
 }
 
 Character::Character(std::string name) {
 	this->name = name;
-	std::cout << "A new Character " << getName() << " has entered" << std::endl;
+	for (int x = 0; x < 4; ++x)
+		this->inventory[x] = NULL;
+	// std::cout << "A new Character " << getName() << " has entered" << std::endl;
 }
 
 Character::~Character() {
 	for (int x = 0; x < 4; ++x)
-		delete (this->inventory[x]);
-	std::cout << "A Character has left" << std::endl;
+		if (this->inventory[x])
+			delete (this->inventory[x]);
+	// std::cout << "A Character has left" << std::endl;
 }
 
 Character::Character(const Character &i) {
-	std::cout << "Character Copy constructor called" << std::endl;
+	// std::cout << "Character Copy constructor called" << std::endl;
+	
+	// ici
 	*this = i;
 }
 
 Character&	Character::operator=(const Character &i) {
-	std::cout << "Character Copy assignment operator called" << std::endl;
+	// std::cout << "Character Copy assignment operator called" << std::endl;
 	if (this != &i) {
 		this->name = i.name;
 		for (int x = 0; x < 4; ++x) {
 			if (this->inventory[x])
+			{
 				delete (this->inventory[x]);
+				this->inventory[x] = NULL;
+			}
 			if (i.inventory[x])
 				this->inventory[x] = i.inventory[x]->clone();
 			else
@@ -59,15 +70,16 @@ void	Character::equip(AMateria* m) {
 			return ;
 		}
 	}
+	// m = NULL;
 	std::cout << "Couldn't equip " << m->getType() << ", the inventory is full" << std::endl;
 }
 
 void	Character::unequip(int idx) {
-	if (this->inventory[idx]) {
-		this->inventory[idx] = NULL;
+	if ((idx < 0 || idx > 3) || !this->inventory[idx]) {
+		std::cout << "There is no Materia at " << idx << " index" << std::endl;
 		return ;
 	}
-	std::cout << "There is no Materia at " << idx << " index" << std::endl;
+	this->inventory[idx] = NULL;
 }
 
 void	Character::use(int idx, ICharacter& target) {
@@ -75,4 +87,12 @@ void	Character::use(int idx, ICharacter& target) {
 		std::cout << "There is no Materia at " << idx << " index" << std::endl;
 	else
 		this->inventory[idx]->use(target);
+}
+
+AMateria	*Character::getMateria(int idx) {
+	if (this->inventory[idx]) {
+		return (this->inventory[idx]);
+	}
+	std::cout << "There is no Materia at " << idx << " index" << std::endl;
+	return (0);
 }

@@ -14,14 +14,14 @@
 MateriaSource::MateriaSource()  {
 	for (int x = 0; x < 4; ++x)
 		this->inventory[x] = NULL;
-	std::cout << "A MateriaSource is up" << std::endl;
+	// std::cout << "A MateriaSource is up" << std::endl;
 }
 
 MateriaSource::~MateriaSource() {
 	for (int x = 0; x < 4; ++x)
 		if (this->inventory[x])
 			delete (this->inventory[x]);
-	std::cout << "A MateriaSource is down" << std::endl;
+	// std::cout << "A MateriaSource is down" << std::endl;
 }
 
 /// @brief Copie la Materia passée en paramètre et la stocke en mémoire afin de la cloner
@@ -34,6 +34,7 @@ void	MateriaSource::learnMateria(AMateria* data) {
 			return ;
 		}
 	}
+	delete (data);
 }
 
 /// @brief Retourne une nouvelle Materia. Celle-ci est une copie de celle apprise précédemment par la MateriaSource 
