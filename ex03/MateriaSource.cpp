@@ -45,6 +45,7 @@ AMateria*	MateriaSource::createMateria(std::string const & type) {
 			if (this->inventory[x]->getType() == type)
 				return (this->inventory[x]->clone());
 	}
+	std::cout << "I don't know about " << type << " Materia. De facto, I cannot create it." << std::endl;
 	return (0);
 }
 

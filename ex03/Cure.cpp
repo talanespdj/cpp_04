@@ -25,14 +25,14 @@ Cure::Cure(const Cure &i) : AMateria(i.type) {
 	// std::cout << "Cure Copy constructor called" << std::endl;
 }
 
-Cure&	Cure::operator=(const Cure &i) {
-	std::cout << "Cure Copy assignment operator called" << std::endl;
-	if (this != &i) {
-		this->type = i.getType();
-		// const_cast<std::string
-	}
-	return (*this);
-}
+// Cure&	Cure::operator=(const Cure &i) {
+// 	std::cout << "Cure Copy assignment operator called" << std::endl;
+// 	if (this != &i) {
+// 		this->type = i.getType();
+// 		// const_cast<std::string
+// 	}
+// 	return (*this);
+// }
 
 std::string	Cure::getType() const {
 	return (this->type);

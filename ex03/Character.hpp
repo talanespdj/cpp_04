@@ -19,6 +19,7 @@
 class	Character : public ICharacter {
 	private:
 		AMateria	*inventory[4];
+		AMateria	*floor[50];
 		std::string	name;
 	
 	public:

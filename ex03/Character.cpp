@@ -16,13 +16,16 @@ Character::Character() {
 	// std::cout << "A new unknown Character has entered" << std::endl;
 	for (int x = 0; x < 4; ++x)
 		this->inventory[x] = NULL;
-
+	for (int x = 0; x < 50; ++x)
+		this->floor[x] = NULL;
 }
 
 Character::Character(std::string name) {
 	this->name = name;
 	for (int x = 0; x < 4; ++x)
 		this->inventory[x] = NULL;
+	for (int x = 0; x < 50; ++x)
+		this->floor[x] = NULL;
 	// std::cout << "A new Character " << getName() << " has entered" << std::endl;
 }
 
@@ -30,6 +33,9 @@ Character::~Character() {
 	for (int x = 0; x < 4; ++x)
 		if (this->inventory[x])
 			delete (this->inventory[x]);
+	for (int x = 0; x < 50; ++x)
+		if (this->floor[x])
+			delete (this->floor[x]);
 	// std::cout << "A Character has left" << std::endl;
 }
 
@@ -70,7 +76,6 @@ void	Character::equip(AMateria* m) {
 			return ;
 		}
 	}
-	// m = NULL;
 	std::cout << "Couldn't equip " << m->getType() << ", the inventory is full" << std::endl;
 }
 
@@ -79,7 +84,14 @@ void	Character::unequip(int idx) {
 		std::cout << "There is no Materia at " << idx << " index" << std::endl;
 		return ;
 	}
-	this->inventory[idx] = NULL;
+	for (int x = 0; x < 50; ++x) {
+		if (!this->floor[x]) {
+			this->floor[x] = this->inventory[idx];
+			this->inventory[idx] = NULL;
+			return ;
+		}
+	}
+	std::cout << "Too many Materia on the ground." << std::endl;
 }
 
 void	Character::use(int idx, ICharacter& target) {
