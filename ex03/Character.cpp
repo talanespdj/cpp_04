@@ -77,6 +77,14 @@ void	Character::equip(AMateria* m) {
 		}
 	}
 	std::cout << "Couldn't equip " << m->getType() << ", the inventory is full" << std::endl;
+	for (int x = 0; x < 50; ++x) {
+		if (!this->floor[x]) {
+			this->floor[x] = m;
+			return ;
+		}
+	}
+	std::cout << "The Materia can neither be used or stored, its gonna disappear." << std::endl;
+	delete (m);
 }
 
 void	Character::unequip(int idx) {
@@ -96,7 +104,7 @@ void	Character::unequip(int idx) {
 
 void	Character::use(int idx, ICharacter& target) {
 	if (!this->inventory[idx])
-		std::cout << "There is no Materia at " << idx << " index" << std::endl;
+		std::cout << "Nothing to use for " << idx << " index" << std::endl;
 	else
 		this->inventory[idx]->use(target);
 }

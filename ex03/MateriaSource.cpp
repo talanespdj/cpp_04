@@ -37,14 +37,14 @@ void	MateriaSource::learnMateria(AMateria* data) {
 	delete (data);
 }
 
+#include <stdio.h>
+
 /// @brief Retourne une nouvelle Materia. Celle-ci est une copie de celle apprise précédemment par la MateriaSource 
 /// et dont le type est le même que celui passé en paramètre. if (type->undefined) -> return (0);
 AMateria*	MateriaSource::createMateria(std::string const & type) {
-	for (int x = 0; x < 4; ++x) {
-		if (this->inventory[x])
-			if (this->inventory[x]->getType() == type)
-				return (this->inventory[x]->clone());
-	}
+	for (int x = 0; x < 4; ++x)
+		if (this->inventory[x] && this->inventory[x]->getType() == type)
+			return (this->inventory[x]->clone());
 	std::cout << "I don't know about " << type << " Materia. De facto, I cannot create it." << std::endl;
 	return (0);
 }
