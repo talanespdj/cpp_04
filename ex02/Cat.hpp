@@ -26,9 +26,11 @@ class	Cat : public Animal {
 		Cat(const Cat& c);
 		Cat& operator=(const Cat& c);
 
-		void	makeSound() const;
+		void	makeSound() const ;
 
 		std::string	getType();
+		Brain		*getBrain() const;
+
 		// void		setType(std::string data);	
 };
 

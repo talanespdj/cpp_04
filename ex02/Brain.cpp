@@ -35,6 +35,8 @@ Brain& Brain::operator=(const Brain& b) {
 } 
 
 void	Brain::setIdea(std::string idea, int index) {
+	if (index < 0 || index > 100)
+		return ;
 	this->ideas[index] = idea;
 }
 

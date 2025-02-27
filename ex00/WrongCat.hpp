@@ -27,7 +27,6 @@ class	WrongCat : virtual public WrongAnimal {
 		void	makeSound();
 
 		std::string	getType();
-		// void		setType(std::string data);	
 };
 
 #endif
