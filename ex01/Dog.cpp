@@ -13,9 +13,8 @@
 #include "Brain.hpp"
 #include <iostream>
 
-Dog::Dog() : type("Dog") {
+Dog::Dog() : Animal(), type("Dog"), br(new Brain()) {
 	std::cout << "A dog just appeared." << std::endl;
-	br = new Brain();
 }
 
 Dog::~Dog() {
@@ -23,15 +22,19 @@ Dog::~Dog() {
 	delete (br);
 }
 
-Dog::Dog(const Dog& d) {
+Dog::Dog(const Dog& d) : Animal(), br(NULL) {
 	std::cout << "Dog Copy constructor called" << std::endl;
 	*this = d;
 }
 
 Dog&	Dog::operator=(const Dog& d) {
 	std::cout << "Dog Copy assignment operator called" << std::endl;
-	if (this != &d)
-		return (*this);
+	if (this != &d) {
+		this->type = d.type;
+		if (this->br && this->br != d.getBrain())
+			delete (this->br);
+		this->br = new Brain(*d.br);
+	}
 	return (*this);
 }
 
@@ -41,4 +44,8 @@ void	Dog::makeSound() {
 
 std::string	Dog::getType() {
 	return (this->type);
+}
+
+Brain		*Dog::getBrain() const {
+	return (this->br);
 }

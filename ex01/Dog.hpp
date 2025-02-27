@@ -15,7 +15,7 @@
 # include "Animal.hpp"
 # include "Brain.hpp"
 
-class	Dog : virtual public Animal {
+class	Dog : public Animal {
 	private:
 		std::string	type;
 		Brain		*br;
@@ -29,6 +29,7 @@ class	Dog : virtual public Animal {
 		void	makeSound();
 
 		std::string	getType();
+		Brain		*getBrain() const;
 		// void		setType(std::string data);	
 };
 
