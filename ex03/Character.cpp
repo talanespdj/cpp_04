@@ -103,6 +103,10 @@ void	Character::unequip(int idx) {
 }
 
 void	Character::use(int idx, ICharacter& target) {
+	if (idx < 0 || idx > 3) {
+		std::cout << "The inventory can only contain 4 Materia, index // 0 to 3" << std::endl;
+		return ;
+	}
 	if (!this->inventory[idx])
 		std::cout << "Nothing to use for " << idx << " index" << std::endl;
 	else
